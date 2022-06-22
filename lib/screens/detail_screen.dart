@@ -42,6 +42,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Style.Colors.mainColor,
       body: new Builder(
         builder: (context) {

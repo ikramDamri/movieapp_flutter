@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/style/theme.dart' as Style;
-import 'package:movieapp/style/theme.dart' as Style;
 import '../model/item.dart';
 
 class faqScreen extends StatefulWidget {
@@ -48,7 +47,7 @@ class _faqScreenState extends State<faqScreen> {
                         padding: EdgeInsets.all(10),
                         child: Text(
                           itemData[index].headerItem,
-                          selectionColor: Style.Colors.secondColor,
+                         // selectionColor: Style.Colors.secondColor,
                           style: TextStyle(
                             color: Style.Colors.mainColor,
                             fontSize: 18,
@@ -64,7 +63,7 @@ class _faqScreenState extends State<faqScreen> {
                         children: [
                           Text(
                             itemData[index].discription,
-                            selectionColor: Style.Colors.secondColor,
+                          //  selectionColor: Style.Colors.secondColor,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,

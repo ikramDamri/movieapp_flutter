@@ -42,6 +42,7 @@ class _GenresListState extends State<GenresList> with SingleTickerProviderStateM
               child: DefaultTabController(
           length: genres.length,
           child: Scaffold(
+            resizeToAvoidBottomInset: false,
             backgroundColor: Style.Colors.mainColor,
             appBar: PreferredSize(
                           preferredSize: Size.fromHeight(50.0),

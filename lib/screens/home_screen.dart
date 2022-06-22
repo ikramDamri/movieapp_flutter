@@ -6,6 +6,7 @@ import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:movieapp/model/user.dart';
+import 'package:movieapp/screens/complaint_screen.dart';
 import 'package:movieapp/screens/faq_sreen.dart';
 import 'package:movieapp/screens/favourite_screen.dart';
 import 'package:movieapp/screens/login_screen.dart';
@@ -65,8 +66,10 @@ final padding = EdgeInsets.symmetric(horizontal: 20);
 // App Bar
   @override
   Widget build(BuildContext context) {
+  
  
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Style.Colors.mainColor,
       drawer: Drawer(
         child: Container(
@@ -132,7 +135,15 @@ final padding = EdgeInsets.symmetric(horizontal: 20);
                     ),
                   );
                 }),
-            listTile(iconData: Icons.copy_outlined, title: "Raise a Complaint"),
+            listTile(iconData: Icons.copy_outlined, 
+            title: "Raise a Complaint",
+            onTap: (){
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => complaintScreen(),
+                )
+              );
+            }),
             listTile(
               iconData: Icons.format_quote_outlined,
               title: "FAQs",

@@ -134,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Image.asset(
                           "assets/logo.png",
                           fit: BoxFit.contain,
-                        )),
+                        )), 
                     SizedBox(height: 45),
                     emailField,
                     SizedBox(height: 25),
@@ -178,7 +178,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void signIn(String email, String password) async {
     if (_formKey.currentState!.validate()) {
       try {
-        await _auth
+        await   _auth
             .signInWithEmailAndPassword(email: email, password: password)
             .then((uid) => {
                   Fluttertoast.showToast(msg: "Login Successful"),
