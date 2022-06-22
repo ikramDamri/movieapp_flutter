@@ -2,7 +2,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:movieapp/style/theme.dart' as Style;
-import '../model/item.dart';
 
 class complaintScreen extends StatefulWidget {
   @override
@@ -15,11 +14,12 @@ class _complaintScreenState extends State<complaintScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Style.Colors.mainColor,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Style.Colors.mainColor,
         title: Text(
-          'CmplaintRaise',
+          'Raise Complaint',
           style: TextStyle(color: Style.Colors.secondColor),
         ),
         leading: IconButton(
@@ -31,6 +31,7 @@ class _complaintScreenState extends State<complaintScreen> {
         ),
       ),
       body: SafeArea(
+        
           child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -41,7 +42,7 @@ class _complaintScreenState extends State<complaintScreen> {
                         height: 200,
                         width: 225,
                         child: Image.asset(
-                          "assets/complaint.png",
+                          "assets/helpdesk.png",
                           fit: BoxFit.contain,
                         )),
             SizedBox(
@@ -52,9 +53,16 @@ class _complaintScreenState extends State<complaintScreen> {
               minLines: 2,
               maxLines: 4,
               decoration: InputDecoration(
-                fillColor: Style.Colors.champColor,
-
-                  labelText: "Plaint Type", border: OutlineInputBorder()),
+                labelText: "Plaint Type", border: OutlineInputBorder(),
+                enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide:  BorderSide(color: Style.Colors.secondColor ),
+                ), 
+                labelStyle: new TextStyle(color: Style.Colors.secondColor),),
+                autofocus: false,
+                style: TextStyle(color: Colors.white),
+        
+        
             ),
             SizedBox(
               height: 10,
@@ -64,13 +72,35 @@ class _complaintScreenState extends State<complaintScreen> {
               minLines: 3,
               maxLines: 5,
               decoration: InputDecoration(
-                  fillColor: Style.Colors.champColor,
-                  labelText: "Description", border: OutlineInputBorder()),
+                  labelText: "Description", border: OutlineInputBorder(),
+                  enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide:  BorderSide(color: Style.Colors.secondColor ),
+                ), 
+                labelStyle: new TextStyle(color: Style.Colors.secondColor),
+                  ),
+                autofocus: false,
+                style: TextStyle(color: Colors.white), 
             ),
             SizedBox(
               height: 10,
             ),
+
+      
             ElevatedButton(
+              child: MaterialButton(
+          padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          minWidth: 300,
+          onPressed: () {  },
+          child: Text(
+            "Raise Complaint",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 20, color: Style.Colors.mainColor, fontWeight: FontWeight.bold),
+          )),
+          style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Style.Colors.secondColor),
+          ),
                
                 onPressed: () {
                   Map<String, dynamic> data = {
@@ -79,7 +109,8 @@ class _complaintScreenState extends State<complaintScreen> {
                   };
                   FirebaseFirestore.instance.collection("complaint").add(data);
                 },
-                child: Text("RaiseComplaint"))
+                //child: Text("Raise Complaint"),
+                )
           ],
         ),
       )),

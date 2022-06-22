@@ -123,8 +123,6 @@ final padding = EdgeInsets.symmetric(horizontal: 20);
                 );
               },
             ),
-            
-            listTile(iconData: Icons.star_outline, title: "Rating & Review"),
             listTile(
                 iconData: Icons.favorite_outline,
                 title: "Favourite",
