@@ -88,28 +88,30 @@ class _complaintScreenState extends State<complaintScreen> {
 
       
             ElevatedButton(
+              onPressed: () {  },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Style.Colors.secondColor),
+              ),
               child: MaterialButton(
           padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          minWidth: 300,
-          onPressed: () {  },
-          child: Text(
-            "Raise Complaint",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: 20, color: Style.Colors.mainColor, fontWeight: FontWeight.bold),
-          )),
-          style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Style.Colors.secondColor),
-          ),
-               
-                onPressed: () {
+          minWidth: MediaQuery.of(context).size.width,
+          onPressed: () {
                   Map<String, dynamic> data = {
                     "fieled1": sampledata1.text,
                     "fieled2": sampledata2.text
                   };
                   FirebaseFirestore.instance.collection("complaint").add(data);
                 },
-                //child: Text("Raise Complaint"),
+                
+          child: Text(
+            "Raise Complaint",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 20, color: Style.Colors.mainColor, fontWeight: FontWeight.bold),
+          )),
+               
+                
+                
                 )
           ],
         ),
